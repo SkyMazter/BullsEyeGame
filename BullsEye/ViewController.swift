@@ -50,22 +50,32 @@ class ViewController: UIViewController {
         let action = UIAlertAction(
             title: "Exit",
             style: .default,
-            handler: nil
+            handler: {
+                _ in
+                self.nextRound()
+            }
         )
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
+//        roundNum+=1
+//        round.text = String(roundNum)
+//
+//
+//
+//        goal = Int.random(in: 1...100)
+//        target.text = String(goal)
+        
+    }
+    func nextRound(){
         roundNum+=1
         round.text = String(roundNum)
 
-
-        
         goal = Int.random(in: 1...100)
         target.text = String(goal)
-        
+
     }
-    
     @IBAction func sliderMoved(_ slider: UISlider){
         print("The value of the slider is now: \(slider.value)")
         currentValue = lroundf(slider.value)
